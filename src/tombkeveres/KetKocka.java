@@ -15,15 +15,19 @@ public class KetKocka {
             db = sc.nextInt();
         } while (db < 0 || db == 0);
 
-        final int DB = 13;
-        int[] dobasLehetosegek = new int[DB];
+        final int OLDAL = 13;
+        int[] dobasLehetosegek = new int[OLDAL];
 
         for (int i = 0; i < db; i++) {
-            int dobas = rnd.nextInt(2, DB);
+            int dobas = rnd.nextInt(2, OLDAL);
             dobasLehetosegek[dobas]++;
         }
-        for (int i = 0; i < DB; i++) {
-            System.out.print(dobasLehetosegek[i] + " ");
+        int m = 0;
+        for (int i = 1; i < OLDAL; i++) {
+            if (dobasLehetosegek[m] < dobasLehetosegek[i]) {
+                m = i;
+            }
         }
+        System.out.println(dobasLehetosegek[m]);
     }
 }
